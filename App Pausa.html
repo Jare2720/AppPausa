@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autocuidado Diario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            const mensajes = [
+                "Tómate un respiro y bebe un vaso de agua.",
+                "Sal a caminar unos minutos y disfruta el aire fresco.",
+                "Escribe tres cosas por las que estés agradecido hoy.",
+                "Escucha tu canción favorita y relájate.",
+                "Haz una pausa y respira profundamente tres veces.",
+                "Desconéctate un momento de las pantallas y descansa tus ojos.",
+                "Date un momento para estirarte y relajar tu cuerpo."
+            ];
+            
+            const boton = document.getElementById("btnMostrarMensaje");
+            const contenedorMensaje = document.getElementById("mensaje");
+
+            boton.addEventListener("click", () => {
+                const indice = Math.floor(Math.random() * mensajes.length);
+                contenedorMensaje.innerText = mensajes[indice];
+                contenedorMensaje.classList.add("animate__animated", "animate__fadeIn");
+                setTimeout(() => contenedorMensaje.classList.remove("animate__fadeIn"), 1000);
+            });
+        });
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card {
+            text-align: center;
+            border-radius: 15px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .mensaje {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            min-height: 50px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <h2 class="mb-3">¿Qué necesito hoy?</h2>
+                    <button id="btnMostrarMensaje" class="btn btn-primary">Obtener Sugerencia</button>
+                    <div id="mensaje" class="mensaje mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
